@@ -1,0 +1,193 @@
+{
+    "documents": [
+        {
+            "document_name": "nasa_systems_engineering_handbook_0.pdf",
+            "file_hash": "8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 2117,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T08:18:52.134414+00:00"
+        },
+        {
+            "document_name": "01_Asterion28_Equipment_Spec_RevA.docx",
+            "file_hash": "9b2e9f3ff941e4fc6418cbd9ed972548e8124b18622c7ae4db6a78eb6ca50e2a",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 12,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:33.006592+00:00"
+        },
+        {
+            "document_name": "02_Asterion28_Equipment_Spec_RevB.docx",
+            "file_hash": "b620b505dc48f1ee2ace93de505bbf5ee716e9acbdfe692cdee682062e360bd3",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 12,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:34.751688+00:00"
+        },
+        {
+            "document_name": "03_Asterion28_Qualification_Test_Report.docx",
+            "file_hash": "122b1f4571ed4982d700e2fcae3077c08e83178c097f72d343232a5fe66cdfc0",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 8,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:35.795383+00:00"
+        },
+        {
+            "document_name": "04_ECN_028_006_Asterion28.docx",
+            "file_hash": "4bb6867414d8e16bf499460309c214ef3d0f50693a341bf5d72ba484f7baa63c",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 9,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:36.720341+00:00"
+        },
+        {
+            "document_name": "05_Asterion28_Maintenance_Manual_Extract.docx",
+            "file_hash": "1a40a45f71501d58a11f21329530656c9c5deb377b4f8ddf16c43737c32f09c2",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 18,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:38.914704+00:00"
+        },
+        {
+            "document_name": "06D299DF0D144A12A38A95127A18A4C8.pdf",
+            "file_hash": "e0cd6de5f6e2c89b42b575e41bd202570f86ecc6661982e7cc1172f719a96304",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 75,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:48.563884+00:00"
+        },
+        {
+            "document_name": "06_Asterion28_EMC_Test_Plan.docx",
+            "file_hash": "b14b050375fe4164e4779350377fab2114b943e5443af686b79bf413a2131812",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 8,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:51.628446+00:00"
+        },
+        {
+            "document_name": "07_Asterion28_Preliminary_Safety_Assessment.docx",
+            "file_hash": "d53dcae4fcda46d81e97e0ae200857843799d7d01c328261af173ed0e3a0e413",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 8,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:53.301411+00:00"
+        },
+        {
+            "document_name": "08_Asterion28_Interface_Control_Description.docx",
+            "file_hash": "dee572f987e09c7b2f9aa358d0d4c67df99cf943267de0babf14be9a75c04a9e",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 7,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:54.904671+00:00"
+        },
+        {
+            "document_name": "09_Asterion28_Inspection_Acceptance_Report.docx",
+            "file_hash": "98e38de6e5d98df61ce30cbacfe6c11397cc6043e6b4532780dea9fcbbcb3011",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 8,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:56.330949+00:00"
+        },
+        {
+            "document_name": "10_Legacy_APU_Manual_Extract_OCR_Test.docx",
+            "file_hash": "f7ee25421615dab5d0837ae1761883394a25bce5fe23e8e5d9ae11ea8b01b304",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 13,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:22:58.228380+00:00"
+        },
+        {
+            "document_name": "1810.12946.pdf",
+            "file_hash": "fa97e6555b3d7387d57fa7e201522b373761aa1da5465150f7b77303bd3ccdb2",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 239,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:23:56.288249+00:00"
+        },
+        {
+            "document_name": "3A7CA095725B48A289905A5AB230AFB5.pdf",
+            "file_hash": "a899e90828216a0bb013464d512926310b8547738f75a77dfa1116e69e4a99cc",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 1354,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:25:15.384054+00:00"
+        },
+        {
+            "document_name": "3F566A69F03546BE896FF0F71BFB269E.pdf",
+            "file_hash": "a77abaaa80ae18da55b491b10eb0712b3f877a7f4affa7a699637958535588d8",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 512,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:26:32.583599+00:00"
+        },
+        {
+            "document_name": "AC_21-29D.pdf",
+            "file_hash": "ffc286a43bf982ed743edbf5d5db64d037c62001798b460957cc14f85ea52447",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 100,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:26:40.985990+00:00"
+        },
+        {
+            "document_name": "AC_21-4B.pdf",
+            "file_hash": "f97d96bfe50690a186ea854e73a5af321a08a4c6080546b769456d7421414498",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 94,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:26:48.438936+00:00"
+        },
+        {
+            "document_name": "AC_21-55.pdf",
+            "file_hash": "1d8a65dd8f12d49686a8e5170cd437d05a05bc62d6a8f428c31b3d5d1b9a4a7d",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 88,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:26:55.212206+00:00"
+        },
+        {
+            "document_name": "AC_25.1329-1C_CHG2.pdf",
+            "file_hash": "d1122e89d61663cc44456dd1ebff460127469027d8d667b0fd695bc8436357e0",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 574,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:28:39.957244+00:00"
+        },
+        {
+            "document_name": "AC_25_1329-1C_CHG_1_.pdf",
+            "file_hash": "cbb6e3888d2529e8e728fc28119698fa03151838224c315a7878595a7ed65abf",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 691,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:30:21.566559+00:00"
+        },
+        {
+            "document_name": "C418B829B4D04420A41DC9D44678C43A.pdf",
+            "file_hash": "ccac7e468713590bebc53d56c23d62d251cde0d9c849656592039ebbd627ccfe",
+            "pipeline_version": "section_chunker_v1",
+            "status": "completed",
+            "total_chunks": 514,
+            "collection": "engineering_documents_v2",
+            "ingested_at": "2026-11-18T09:31:37.666416+00:00"
+        }
+    ]
+}

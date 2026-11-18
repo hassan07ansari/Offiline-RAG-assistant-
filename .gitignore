@@ -1,0 +1,52 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# ChromaDB persistent database
+data/chroma_db/
+
+# Python and application logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Generated requirements extraction output
+requirements_output/
+
+# Local model files
+models/
+*.gguf
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# Test and coverage cache
+.pytest_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "question": "What is the operating ambient temperature range in Asterion-28 Rev A?",
+    "expected_answer": "-40 °C to +70 °C",
+    "expected_source": "01_Asterion28_Equipment_Spec_RevA.docx",
+    "answerable": true
+  },
+  {
+    "id": 2,
+    "question": "What is the operating ambient temperature range in Asterion-28 Rev B?",
+    "expected_answer": "-45 °C to +75 °C",
+    "expected_source": "02_Asterion28_Equipment_Spec_RevB.docx",
+    "answerable": true
+  },
+  {
+    "id": 3,
+    "question": "How did the operating temperature requirement change from Rev A to Rev B?",
+    "expected_answer": "It changed from -40 °C to +70 °C to -45 °C to +75 °C.",
+    "expected_source": "Rev A, Rev B and ECN_028_006",
+    "answerable": true
+  },
+  {
+    "id": 4,
+    "question": "What is the operating input voltage range in Rev A?",
+    "expected_answer": "22 VDC to 32 VDC",
+    "expected_source": "01_Asterion28_Equipment_Spec_RevA.docx",
+    "answerable": true
+  },
+  {
+    "id": 5,
+    "question": "What is the operating input voltage range in Rev B?",
+    "expected_answer": "20 VDC to 34 VDC",
+    "expected_source": "02_Asterion28_Equipment_Spec_RevB.docx",
+    "answerable": true
+  },
+  {
+    "id": 6,
+    "question": "What is the maximum equipment mass specified in Rev A?",
+    "expected_answer": "2.40 kg",
+    "expected_source": "01_Asterion28_Equipment_Spec_RevA.docx",
+    "answerable": true
+  },
+  {
+    "id": 7,
+    "question": "What is the maximum equipment mass specified in Rev B?",
+    "expected_answer": "2.30 kg",
+    "expected_source": "02_Asterion28_Equipment_Spec_RevB.docx",
+    "answerable": true
+  },
+  {
+    "id": 8,
+    "question": "What are the major changes recorded in ECN-028-006?",
+    "expected_answer": "Operating temperature, input voltage, maximum mass and power conditioning module part number changed.",
+    "expected_source": "04_ECN_028_006_Asterion28.docx",
+    "answerable": true
+  },
+  {
+    "id": 9,
+    "question": "Which requirement ID is associated with the operating temperature change?",
+    "expected_answer": "SYS-003",
+    "expected_source": "04_ECN_028_006_Asterion28.docx",
+    "answerable": true
+  },
+  {
+    "id": 10,
+    "question": "Which requirement ID is associated with the input voltage change?",
+    "expected_answer": "SYS-002",
+    "expected_source": "04_ECN_028_006_Asterion28.docx",
+    "answerable": true
+  },
+  {
+    "id": 11,
+    "question": "Which requirement ID is associated with the maximum mass change?",
+    "expected_answer": "SYS-005",
+    "expected_source": "04_ECN_028_006_Asterion28.docx",
+    "answerable": true
+  },
+  {
+    "id": 12,
+    "question": "What is the ambient temperature limit in the Legacy APU manual?",
+    "expected_answer": "-20 °C to +55 °C",
+    "expected_source": "10_Legacy_APU_Manual_Extract_OCR_Test.docx",
+    "answerable": true
+  },
+  {
+    "id": 13,
+    "question": "What input supply range is permitted by the Legacy APU manual?",
+    "expected_answer": "24 VDC nominal; 20–30 VDC permitted",
+    "expected_source": "10_Legacy_APU_Manual_Extract_OCR_Test.docx",
+    "answerable": true
+  },
+  {
+    "id": 14,
+    "question": "What is the maximum continuous current in the Legacy APU manual?",
+    "expected_answer": "12 A",
+    "expected_source": "10_Legacy_APU_Manual_Extract_OCR_Test.docx",
+    "answerable": true
+  },
+  {
+    "id": 15,
+    "question": "What fuse rating is specified in the Legacy APU manual?",
+    "expected_answer": "15 A time-delay",
+    "expected_source": "10_Legacy_APU_Manual_Extract_OCR_Test.docx",
+    "answerable": true
+  },
+  {
+    "id": 16,
+    "question": "What is the Asterion-28 storage temperature range?",
+    "expected_answer": "-50 °C to +85 °C",
+    "expected_source": "Asterion-28 Rev A or Rev B specification",
+    "answerable": true
+  },
+  {
+    "id": 17,
+    "question": "What is the issue date of Asterion-28 Rev A?",
+    "expected_answer": "2026-10-15",
+    "expected_source": "01_Asterion28_Equipment_Spec_RevA.docx",
+    "answerable": true
+  },
+  {
+    "id": 18,
+    "question": "What is the GPS positional accuracy of Asterion-28?",
+    "expected_answer": "Not found in the documents.",
+    "expected_source": null,
+    "answerable": false
+  },
+  {
+    "id": 19,
+    "question": "What battery chemistry does Asterion-28 use?",
+    "expected_answer": "Not found in the documents.",
+    "expected_source": null,
+    "answerable": false
+  },
+  {
+    "id": 20,
+    "question": "What is the serial number of the Asterion-28 equipment?",
+    "expected_answer": "Not found in the documents.",
+    "expected_source": null,
+    "answerable": false
+  }
+]
