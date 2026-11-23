@@ -140,22 +140,35 @@ def answer_question(question, bm25, bm25_records):
     generate_answer(question, results)
 
 
+
 def main():
-    parser = argparse.ArgumentParser(
-        description="Offline Engineering Documents RAG Assistant"
-    )
 
-    parser.add_argument(
-        "question",
-        help='Question to ask, e.g. "What is the operating temperature of Asterion-28?"'
-    )
+    print("=" * 60)
+    print("OFFLINE ENGINEERING DOCUMENT RAG ASSISTANT")
+    print("=" * 60)
 
-    args = parser.parse_args()
+    # Build BM25 only once when the application starts.
+    print("\nBuilding BM25 index...")
 
-    print("Building BM25 index...")
     bm25, bm25_records = build_bm25_index()
 
-    answer_question(args.question, bm25, bm25_records)
+    print("\nAssistant is ready!")
+    print("Enter 'exit' to close the application.")
+
+    # Continue accepting questions using the same BM25 index.
+    while True:
+
+        question = input("\nAsk a question: ").strip()
+
+        if question.lower() in ["exit", "quit"]:
+            print("\nClosing assistant...")
+            break
+
+        if not question:
+            print("Please enter a question.")
+            continue
+
+        answer_question(question, bm25, bm25_records)
 
 
 if __name__ == "__main__":
