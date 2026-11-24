@@ -1,3 +1,4 @@
+
 import os
 import time
 import argparse
@@ -11,6 +12,10 @@ from ingestion_registry import (
     is_already_processed,
     update_registry
 )
+
+from hybrid_search import invalidate_bm25_cache
+from Ask import main as run_query_application
+
 
 PIPELINE_VERSION = "section_chunker_v1"
 COLLECTION_NAME = "engineering_documents_v2"
@@ -117,17 +122,7 @@ def process_document(file_path):
         return "failed"
 
 
-def main():
-
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Preview documents without performing ingestion"
-    )
-
-    args = parser.parse_args()
+def run_ingestion(dry_run=False):
 
     if not os.path.isdir(DOCUMENTS_DIR):
         raise FileNotFoundError(
@@ -142,7 +137,7 @@ def main():
         print("No supported PDF or DOCX files found.")
         return
 
-    if args.dry_run:
+    if dry_run:
 
         print("\nDRY RUN — No documents will be ingested.")
 
@@ -156,7 +151,11 @@ def main():
                 PIPELINE_VERSION
             )
 
-            status = "SKIP — Already processed" if already_processed else "NEW — Ready for ingestion"
+            status = (
+                "SKIP — Already processed"
+                if already_processed
+                else "NEW — Ready for ingestion"
+            )
 
             print("\nFile:", file_name)
             print("SHA-256:", file_hash)
@@ -175,10 +174,16 @@ def main():
 
         if result == "processed":
             processed += 1
+
         elif result == "skipped":
             skipped += 1
+
         else:
             failed += 1
+
+    # Invalidate the saved BM25 index only if documents were ingested.
+    if processed > 0:
+        invalidate_bm25_cache()
 
     print("\n" + "=" * 60)
     print("INGESTION SUMMARY")
@@ -186,6 +191,41 @@ def main():
     print("Processed:", processed)
     print("Skipped:", skipped)
     print("Failed:", failed)
+
+
+def main():
+
+    parser = argparse.ArgumentParser(
+        description="Offline Engineering Document RAG Assistant"
+    )
+
+    mode = parser.add_mutually_exclusive_group()
+
+    mode.add_argument(
+        "--ingest",
+        action="store_true",
+        help="Run the document ingestion pipeline"
+    )
+
+    mode.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview document ingestion without making changes"
+    )
+
+    args = parser.parse_args()
+
+    if args.ingest:
+        print("\nStarting document ingestion...")
+        run_ingestion()
+
+    elif args.dry_run:
+        print("\nStarting ingestion preview...")
+        run_ingestion(dry_run=True)
+
+    else:
+        print("\nStarting query application...")
+        run_query_application()
 
 
 if __name__ == "__main__":
