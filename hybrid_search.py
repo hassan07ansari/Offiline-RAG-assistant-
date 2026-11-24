@@ -1,4 +1,6 @@
 import re
+import os 
+import pickle
 
 from rank_bm25 import BM25Okapi
 
@@ -42,6 +44,76 @@ def build_bm25_index():
     print("Indexed chunks:", len(bm25_records))
 
     return bm25, bm25_records
+
+
+CACHE_PATH = "cache/bm25_index.pkl"
+CACHE_VERSION = 1
+
+
+def load_or_build_bm25_index():
+
+    current_count = collection_v2.count()
+
+    # Check whether a saved BM25 index exists.
+    if os.path.exists(CACHE_PATH):
+
+        try:
+            print("Checking saved BM25 index...")
+
+            with open(CACHE_PATH, "rb") as file:
+                cache = pickle.load(file)
+
+            # Validate the saved index.
+            if (
+                cache["cache_version"] == CACHE_VERSION
+                and cache["collection_count"] == current_count
+            ):
+
+                print("Valid BM25 cache found.")
+                print("Loading BM25 index from disk...")
+
+                return cache["bm25"], cache["bm25_records"]
+
+            print("BM25 cache is outdated. Rebuilding...")
+
+        except (OSError, EOFError, pickle.UnpicklingError,
+                AttributeError, ImportError, ValueError, KeyError):
+
+            print("BM25 cache is invalid. Rebuilding...")
+
+    # Build a new index if no valid cache exists.
+    print("Building BM25 index...")
+
+    bm25, bm25_records = build_bm25_index()
+
+    # Save the index and records together.
+    cache = {
+        "cache_version": CACHE_VERSION,
+        "collection_count": current_count,
+        "bm25": bm25,
+        "bm25_records": bm25_records
+    }
+
+    os.makedirs(os.path.dirname(CACHE_PATH), exist_ok=True)
+
+    temporary_path = CACHE_PATH + ".tmp"
+
+    with open(temporary_path, "wb") as file:
+        pickle.dump(cache, file)
+
+    os.replace(temporary_path, CACHE_PATH)
+
+    print("BM25 index saved to disk.")
+
+    return bm25, bm25_records
+
+
+def invalidate_bm25_cache():
+
+    if os.path.exists(CACHE_PATH):
+        os.remove(CACHE_PATH)
+        print("Old BM25 cache invalidated.")
+
 
 
 def hybrid_search(query, bm25, bm25_records, top_k=5, candidate_k=10):

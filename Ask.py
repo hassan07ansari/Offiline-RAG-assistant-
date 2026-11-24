@@ -1,9 +1,7 @@
-import argparse
 import os
-
 import ollama
 
-from hybrid_search import build_bm25_index, hybrid_search
+from hybrid_search import load_or_build_bm25_index, hybrid_search
 
 
 MODEL_NAME = "qwen3:4b-instruct"
@@ -94,28 +92,28 @@ Provide your answer with source citations.
 
     answer = response.message.content
 
-    # Calculate generation speed.
     token_count = response.eval_count or 0
     generation_time = response.eval_duration or 0
 
     if generation_time > 0:
-        tokens_per_second = token_count / (generation_time / 1_000_000_000)
+        tokens_per_second = token_count / (
+            generation_time / 1_000_000_000
+        )
     else:
         tokens_per_second = 0
 
-    print("\nANSWER")
-    print("-" * 60)
-    print(answer)
-
-    print("\nGENERATION PERFORMANCE")
-    print("-" * 60)
-    print("Model:", MODEL_NAME)
-    print("Generated tokens:", token_count)
-    print("Generation speed:", round(tokens_per_second, 2), "tokens/sec")
+    return {
+        "answer": answer,
+        "performance": {
+            "model": MODEL_NAME,
+            "generated_tokens": token_count,
+            "generation_speed": round(tokens_per_second, 2)
+        }
+    }
 
 
 def answer_question(question, bm25, bm25_records):
-    """Retrieve relevant chunks and generate an answer."""
+    """Retrieve relevant chunks and generate a structured answer."""
 
     print("\nSearching documents...")
 
@@ -126,18 +124,32 @@ def answer_question(question, bm25, bm25_records):
         top_k=TOP_K
     )
 
+    sources = []
+
+    for result in results:
+        sources.append({
+            "citation": format_source(result["metadata"]),
+            "rrf_score": result["rrf_score"],
+            "semantic_distance": result.get("semantic_distance"),
+            "bm25_score": result.get("bm25_score")
+        })
+
     if not results:
-        print("\nNot found in the documents.")
-        return
+        return {
+            "question": question,
+            "answer": "Not found in the documents.",
+            "sources": [],
+            "performance": None
+        }
 
-    print("\nRetrieved sources:")
-    for index, result in enumerate(results, start=1):
-        print(
-            f"{index}. {format_source(result['metadata'])} "
-            f"(RRF: {result['rrf_score']:.5f})"
-        )
+    answer_result = generate_answer(question, results)
 
-    generate_answer(question, results)
+    return {
+        "question": question,
+        "answer": answer_result["answer"],
+        "sources": sources,
+        "performance": answer_result["performance"]
+    }
 
 
 
@@ -147,15 +159,11 @@ def main():
     print("OFFLINE ENGINEERING DOCUMENT RAG ASSISTANT")
     print("=" * 60)
 
-    # Build BM25 only once when the application starts.
-    print("\nBuilding BM25 index...")
-
-    bm25, bm25_records = build_bm25_index()
+    bm25, bm25_records = load_or_build_bm25_index()
 
     print("\nAssistant is ready!")
     print("Enter 'exit' to close the application.")
 
-    # Continue accepting questions using the same BM25 index.
     while True:
 
         question = input("\nAsk a question: ").strip()
@@ -168,7 +176,24 @@ def main():
             print("Please enter a question.")
             continue
 
-        answer_question(question, bm25, bm25_records)
+        result = answer_question(question, bm25, bm25_records)
+
+        # Display the answer
+        print("\nANSWER")
+        print("-" * 60)
+        print(result["answer"])
+
+        # Display source citations
+        if result["sources"]:
+
+            print("\nSOURCES")
+            print("-" * 60)
+
+            for index, source in enumerate(result["sources"], start=1):
+                print(f"{index}. {source['citation']}")
+
+        else:
+            print("\nNo supporting documents found.")
 
 
 if __name__ == "__main__":
